@@ -114,9 +114,7 @@ const Success = () => {
           onUpdate: (self) => {
             console.log('Scroll progress:', self.progress, 'x:', gsap.getProperty(scrollContainer, "x"))
           },
-          onComplete: () => {
-            console.log('Horizontal scroll animation complete')
-          }
+        
         }
       })
 
