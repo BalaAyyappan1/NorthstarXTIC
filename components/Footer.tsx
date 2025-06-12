@@ -110,7 +110,7 @@ const Footer = () => {
 
 
       {/* mobile version */}
-      <div className='sm:hidden md:hidden'>
+      <div className='sm:hidden md:hidden block'>
       <div className="relative md:h-[338px] bg-[#F9F5F6] rounded-[20px] px-[16px] py-10 flex flex-col">
   {/* Centered Logo */}
   <div className="flex justify-center mb-8">
