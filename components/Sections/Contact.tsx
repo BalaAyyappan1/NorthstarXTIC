@@ -308,14 +308,14 @@ const Contact = () => {
               </div>
 
               {/* CV Upload */}
-              <div className="flex flex-row justify-center items-center gap-4 -mt-2">
+              {/* <div className="flex flex-row justify-center items-center gap-4 -mt-2">
                 <div className="relative flex-1 space-y-1">
                   <input
                     id="cv"
                     type="file"
                     accept=".pdf,.doc,.docx"
                     onChange={handleFileChange}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer border-2 border-dotted border-gray-400"
                     disabled={isSubmitting}
                     aria-invalid={errors.cv ? "true" : "false"}
                     aria-describedby={errors.cv ? "cv-error" : undefined}
@@ -342,8 +342,41 @@ const Contact = () => {
                     {errors.cv}
                   </span>
                 )}
-              </div>
-
+              </div> */}
+{/* CV Upload */}
+<div className="flex flex-row justify-center items-center gap-4 -mt-2">
+  <div className="relative flex-1 space-y-1">
+    <input
+      id="cv"
+      type="file"
+      accept=".pdf,.doc,.docx"
+      onChange={handleFileChange}
+      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+      disabled={isSubmitting}
+      aria-invalid={errors.cv ? "true" : "false"}
+      aria-describedby={errors.cv ? "cv-error" : undefined}
+    />
+    <div
+      className={`border-2 border-dashed ${
+        errors.cv ? 'border-red-400/60' : 'border-white'
+      } rounded-[26px] bg-transparent outline-none transition-colors px-4 py-3 w-full text-[12px] text-white placeholder-white flex items-center justify-center cursor-pointer`}
+    >
+      <span className={formData.cv ? "text-white" : "text-white/70"}>
+        {formData.cv ? formData.cv.name : "Upload Your CV"}
+      </span>
+    </div>
+  </div>
+  <div className="flex-1 flex-col text-[10px] mt-2 ">
+    <p>(Only .pdf file)</p>
+    <p>(No space or special characters allowed)</p>
+    <p>(Max size upto 5mb)</p>
+  </div>
+  {errors.cv && (
+    <span id="cv-error" className="text-red-300 text-xs block">
+      {errors.cv}
+    </span>
+  )}
+</div>
               {/* Note/Message */}
               <div className="space-y-1 flex-1 relative">
                 {/* Icon */}

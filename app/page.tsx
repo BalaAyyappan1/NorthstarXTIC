@@ -15,10 +15,10 @@ export default function Home() {
       <div className="md:mt-[120px] md:mb-[120px]">
       <Industries />
       </div>
-      <div className="md:px-[180px] px-[16px] md:mb-[120px]">
+      <div className="xl:px-[180px] lg:px- px-[16px] md:mb-[120px]">
       <Solutions />
       </div>
-      <div className="md:px-[80px] px-[16px] md:mb-[120px]">
+      <div className="md:px-[80px] px-[16px] md:mb-[60px]">
       <Success />
       </div>
       <div className="md:px-[80px] px-[16px]"> 
