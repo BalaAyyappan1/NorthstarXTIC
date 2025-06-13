@@ -18,7 +18,7 @@ export default function Home() {
       <div className="xl:px-[180px] lg:px- px-[16px] md:mb-[120px]">
       <Solutions />
       </div>
-      <div className="md:px-[80px] px-[16px] md:mb-[60px]">
+      <div className="md:pl-[80px] pl-[16px] md:mb-[60px]">
       <Success />
       </div>
       <div className="md:px-[80px] px-[16px]"> 

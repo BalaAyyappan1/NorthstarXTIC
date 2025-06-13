@@ -111,53 +111,52 @@ const Footer = () => {
 
       {/* mobile version */}
       <div className='sm:hidden md:hidden block'>
-      <div className="relative md:h-[338px] bg-[#F9F5F6] rounded-[20px] px-[16px] py-10 flex flex-col">
-  {/* Centered Logo */}
-  <div className="flex justify-center mb-8">
-    <Link href={'#home-section'}>
-      <Image src={CompnayLogo} alt="Company Logo" className="w-[269px]" />
-    </Link>
-  </div>
-  
-  {/* Left-aligned Navigation */}
-  <div className="flex flex-col items-start space-y-5">
-    <ul className="flex flex-col gap-[5px]">
-      {navContents.map((item) => (
-        <li key={item.sectionId}>
-          <Link
-            href={item.link}
-            onClick={(e) => handleScrollToSection(e, item.sectionId)}
-            className={`px-1 py-2 text-[12px] tracking-[0.5px] transition-colors font-medium hover:font-bold ${
-              activeSection === item.sectionId
-                ? 'text-[#909090] font-bold'
-                : 'text-[#909090]'
-            }`}
-          >
-            {item.name}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </div>
-  
-  {/* Left-aligned Contact Info */}
-  <div className="flex flex-col max-w-[331px] mt-5">
-    <span className="text-[#6F6F6F] font-semibold text-[14px]">Get in touch</span>
-    <span className="text-[#909090] text-[12px]">
-      info@northstargrowthadvisors.com
-    </span>
-    <span className="text-[#909090] text-[12px]">
-      Unit No. GB-06, Ground Floor, Pragya Accelerator, Gift City,
-      Gandhinagar - 382355, INDIA.
-    </span>
-  </div>
-  
-  {/* Centered Footer */}
-  <div className='flex justify-center pt-5 md:pt-5 text-[#909090] text-[16px]'>
-    © designed & developed by <Link href={'https://www.theinternetcompany.one/'} target="_blank" rel="noopener noreferrer" className='hover:underline'>TIC GLOBAL</Link>.
-  </div>
-</div>
-      
+        <div className="relative md:h-[338px] bg-[#F9F5F6] rounded-[20px] px-[16px] py-10 flex flex-col">
+
+          <div className="flex justify-center mb-8">
+            <Link href={'#home-section'}>
+              <Image src={CompnayLogo} alt="Company Logo" className="w-[269px]" />
+            </Link>
+          </div>
+
+
+          <div className="flex flex-col items-start space-y-5">
+            <ul className="flex flex-col gap-[5px]">
+              {navContents.map((item) => (
+                <li key={item.sectionId}>
+                  <Link
+                    href={item.link}
+                    onClick={(e) => handleScrollToSection(e, item.sectionId)}
+                    className={`px-1 py-2 text-[12px] tracking-[0.5px] transition-colors font-medium hover:font-bold ${activeSection === item.sectionId
+                        ? 'text-[#909090] font-bold'
+                        : 'text-[#909090]'
+                      }`}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+
+          <div className="flex flex-col max-w-[331px] mt-5">
+            <span className="text-[#6F6F6F] font-semibold text-[14px]">Get in touch</span>
+            <span className="text-[#909090] text-[12px]">
+              info@northstargrowthadvisors.com
+            </span>
+            <span className="text-[#909090] text-[12px]">
+              Unit No. GB-06, Ground Floor, Pragya Accelerator, Gift City,
+              Gandhinagar - 382355, INDIA.
+            </span>
+          </div>
+
+
+          <div className='flex justify-center pt-5 md:pt-5 text-[#909090] text-[16px]'>
+            © designed & developed by <Link href={'https://www.theinternetcompany.one/'} target="_blank" rel="noopener noreferrer" className='hover:underline'>TIC GLOBAL</Link>.
+          </div>
+        </div>
+
       </div>
 
     </>
