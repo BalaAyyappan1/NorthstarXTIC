@@ -12,13 +12,13 @@ export default function Home() {
     <div className="overflow-x-hidden">
       <TopNav />
       <Hero />
-      <div className="md:mt-[120px] md:mb-[120px]">
+      <div className="md:mt-[120px] mt-[60px] md:mb-[120px]">
       <Industries />
       </div>
-      <div className="xl:px-[180px] lg:px- px-[16px] md:mb-[120px]">
+      <div className="xl:px-[180px] lg:px-[16px] px-[16px] md:mb-[120px]">
       <Solutions />
       </div>
-      <div className="md:pl-[80px] pl-[16px] md:mb-[60px]">
+      <div className="md:pl-[80px] pl-[16px] md:pl-0 pr-[16px] md:mb-[60px]">
       <Success />
       </div>
       <div className="md:px-[80px] px-[16px]"> 

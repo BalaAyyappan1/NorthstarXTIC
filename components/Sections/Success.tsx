@@ -250,7 +250,7 @@ const Success = () => {
                 <Image
                   src={content.image}
                   alt={`${content.title} icon`}
-                  className="w-100 h-full mt-7"
+                  className="w-full h-full mt-7"
                   priority={index < 2}
                 />
               </div>

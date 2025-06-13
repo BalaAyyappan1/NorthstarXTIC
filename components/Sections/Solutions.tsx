@@ -46,16 +46,16 @@ const Solutions = () => {
         Data-Led, Results-Driven Action
       </h1>
 
-      <div className="flex flex-col lg:flex-row justify-center items-start gap-8 lg:gap-12 xl:gap-16 mt-[50px]">
+      <div className="flex flex-col lg:flex-row justify-center items-start gap-8 lg:gap-12 xl:gap-16 md:mt-[50px] mt-[20px]">
         {/* Left side - Image */}
-        <div className="w-full lg:w-auto flex justify-center lg:block relative">
-          <div className="relative">
+        <div className="w-full h-full lg:w-auto flex justify-center lg:block relative">
+          <div className="relative ">
             <Image
               src={BlackGuy}
               alt="blk guy"
-              width={500}
-              height={600}
-              className="w-full max-w-md lg:max-w-none h-auto lg:h-[514px] object-contain"
+              width={1000}
+              height={1000}
+              className="md:w-full md:h-full md:max-w-full h-[480px] rounded-[34px]   object-cover"
             />
             <div className="absolute bottom-0 right-5">
               <Image
