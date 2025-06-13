@@ -244,7 +244,7 @@ const TopNav = () => {
                         href={item.link}
                         className={`block py-3 text-center text-2xl font-medium ${
                           activeSection === item.sectionId
-                            ? "text-white font-bold"
+                            ? "text-[#A10E2B] font-bold"
                             : "text-gray-600"
                         }`}
                         onClick={(e) => {
