@@ -34,7 +34,7 @@ const Industries = () => {
                 <h2 className="xl:text-[36px] lg:text-[26px] md:text-[20px] text-[14px] leading-10 font-bold text-[#060B13] md:mt-0 md:mt-1">
                   {content.title}
                 </h2>
-                <p className="xl:text-[18px] lg:text-[16px] md:text-[14px] text-[12px] leading-[14px] text-[#909090] mb-6 xl:w-[532px] lg:w-[432px] md:text-start text-center">
+                <p className="xl:text-[18px] lg:text-[16px] md:text-[14px] text-[12px]  md:leading-[19px] leading-[14px] text-[#909090] mb-6 xl:w-[532px] lg:w-[432px] md:text-start text-center">
                   {content.description}
                 </p>
               </div>

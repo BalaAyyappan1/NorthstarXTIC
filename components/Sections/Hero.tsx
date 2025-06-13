@@ -32,7 +32,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto flex md:flex-row flex-col justify-center items-center  mt-15 z-10">
+      <div className="container mx-auto flex md:flex-row flex-col justify-center items-center h-[665px]dvh mt-15 z-10">
         <div className='xl:max-w-[457px] lg:max-w-[400px] md:max-w-[400px] sm:max-w-full w-full flex flex-col space-y-2 md:space-y-4'>
           <h1 className="xl:text-[54px] lg:text-[44px] md:text-[30px] text-[20px] font-bold text-[#000000] xl:leading-[56px] lg:leading-[46px] md:leading-[36px] leading-[32px] mt-6 md:mt-10 relative">
             Accelerating Global Expansion Redefining{" "}
@@ -61,7 +61,7 @@ const Hero = () => {
           <Image
             src={heroImage}
             alt="hero"
-            className="w-full max-w-full sm:max-w-full md:max-w-[600px] lg:max-w-[450px] xl:max-w-[600px]"
+            className="w-full max-w-full sm:max-w-full md:max-w-[600px] lg:max-w-[450px] xl:max-w-[550px]"
             priority
           />
         </div>

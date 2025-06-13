@@ -124,11 +124,11 @@ const Contact = () => {
     };
 
     return (
-      <div className="md:h-[437px] bg-[#EC677DB2] items-center md:px-[115px] lg:px-[75px] py-[47px] justify-center rounded-[20px] p-8 relative">
+      <div className="md:h-[437px] bg-[#EC677DB2] items-center xl:px-[115px] lg:px-[75px] py-[47px] justify-center rounded-[20px] p-8 relative">
         <Image
           src={ArrowIcon}
           alt="Arrow"
-          className="absolute md:-top-[7%] -top-[1%] md:left-[5%] left-[1%] w-[125px]"
+          className="absolute md:-top-[5%] -top-[1%] md:left-[5%] left-[1%] w-[125px]"
         />
         <div className="flex md:flex-row flex-col justify-center items-start gap-12 h-full mt-2">
           {/* Left Side - Image and Text */}
