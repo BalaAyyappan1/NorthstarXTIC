@@ -35,7 +35,7 @@ export {default as MarketIcon} from "@/public/Solutions/Logos/market.png";
 export {default as ProductIcon} from "@/public/Solutions/Logos/product.png";
 export {default as StrategyIcon} from "@/public/Solutions/Logos/execution.png";
 export {default as CustomerIcon} from "@/public/Solutions/Logos/customer.png";
-export {default as ExecutionIcon} from "@/public/Solutions/Logos/execution.png";
+export {default as ExecutionIcon} from "@/public/Solutions/Logos/exe2.png";
 
 
 
