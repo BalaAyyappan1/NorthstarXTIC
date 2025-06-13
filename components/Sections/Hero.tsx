@@ -41,10 +41,10 @@ const Hero = () => {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={texts[index]}
-                  initial={{ y: 25, opacity: 0 }}
+                  initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -25, opacity: 0 }}
-                  transition={{ duration: 0.5 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
                   className="absolute w-full xl:text-[54px] lg:text-[44px] md:text-[34px] text-[20px] font-bold text-[#A10E2B]  "
                 >
                   {texts[index]}

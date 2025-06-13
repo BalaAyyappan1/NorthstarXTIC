@@ -124,7 +124,7 @@ const Contact = () => {
     };
 
     return (
-      <div className="md:h-[437px] bg-[#EC677DB2] items-center md:px-[115px] py-[47px] justify-center rounded-[20px] p-8 relative">
+      <div className="md:h-[437px] bg-[#EC677DB2] items-center md:px-[115px] lg:px-[75px] py-[47px] justify-center rounded-[20px] p-8 relative">
         <Image
           src={ArrowIcon}
           alt="Arrow"
@@ -394,7 +394,7 @@ const Contact = () => {
                   onBlur={handleBlur}
                   className={`${getInputClassName(
                     "Note"
-                  )} pl-10 py-1  resize-none`} // Ensure vertical padding
+                  )} pl-9 py-1  resize-none`} // Ensure vertical padding
                   rows={2}
                   disabled={isSubmitting}
                   aria-invalid={errors.Note ? "true" : "false"}

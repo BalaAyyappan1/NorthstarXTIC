@@ -64,7 +64,7 @@ const Footer = () => {
     <>
       {/* Destop version */}
       <div className='hidden sm:block md:block'>
-        <div className="relative md:h-[338px] bg-[#F9F5F6] rounded-[20px] px-[115px] py-[47px] flex flex-col items-center justify-center">
+        <div className="relative md:h-[338px] bg-[#F9F5F6] rounded-[20px] xl:px-[115px] lg:px-[70px] py-[47px] flex flex-col items-center justify-center">
           <div className="w-full max-w-[1200px] flex md:flex-row flex-col justify-between items-start gap-8">
             <Link href={'#home-section'}>
               <Image src={CompnayLogo} alt="Company Logo" className="w-[369px]" />
@@ -100,7 +100,7 @@ const Footer = () => {
               </span>
             </div>
           </div>
-          <div className='absolute bottom-[7%] right-[3%] pb-5 md:pb-5 text-[#909090] text-[16px]'>
+          <div className='absolute bottom-[7%] xl:left-[8%] lg:left-[6%] pb-5 md:pb-5 text-[#909090] text-[16px]'>
             © designed &  developed by  <Link href={'https://www.theinternetcompany.one/'} target="_blank" rel="noopener noreferrer" className='hover:underline'>TIC GLOBAL</Link>.
           </div>
         </div>
