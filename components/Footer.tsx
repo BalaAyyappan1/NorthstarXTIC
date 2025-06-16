@@ -64,7 +64,7 @@ const Footer = () => {
     <>
       {/* Destop version */}
       <div className='hidden sm:block md:block'>
-        <div className="relative md:h-[338px] bg-[#F9F5F6] rounded-[20px] xl:px-[115px] lg:px-[70px] py-[47px] flex flex-col items-center justify-center">
+        <div className="relative md:h-[338px] bg-[#F9F5F6] rounded-[20px] xl:px-[115px] lg:px-[70px] md:px-[30px] py-[47px] flex flex-col items-center justify-center">
           <div className="w-full max-w-[1200px] flex md:flex-row flex-col justify-between items-start gap-8">
             <Link href={'#home-section'}>
               <Image src={CompnayLogo} alt="Company Logo" className="w-[369px]" />
