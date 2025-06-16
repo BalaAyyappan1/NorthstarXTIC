@@ -32,8 +32,8 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto flex lg:flex-row flex-col justify-center items-center h-[665px]dvh xl:mt-15 lg:mt-15 md:mt-20  z-10">
-        <div className='xl:max-w-[457px] lg:max-w-[400px] md:max-w-full sm:max-w-full w-full flex flex-col space-y-2 xl:space-y-4 lg:space-y-4'>
+      <div className="container mx-auto flex lg:flex-row flex-col justify-center items-center h-[665px]dvh xl:mt-15 lg:mt-15 md:mt-5  z-10">
+        <div className='xl:max-w-[457px] lg:max-w-[400px] md:max-w-[610px] sm:max-w-full w-full flex flex-col space-y-2 xl:space-y-4 lg:space-y-4'>
           <h1 className="xl:text-[54px] lg:text-[44px] md:text-[30px] text-[20px] font-bold text-[#000000] xl:leading-[56px] lg:leading-[46px] md:leading-[36px] leading-[32px] mt-6 md:mt-10 relative">
             Accelerating Global Expansion Redefining{" "}
             {/* <br className="sm:hidden md:hidden " />  */}

@@ -118,8 +118,8 @@ const Solutions = () => {
       </div> */}
       <div className="flex flex-col lg:flex-row justify-center items-start gap-8 lg:gap-12 xl:gap-16 md:mt-[50px] mt-[20px]">
       {/* Left side - Image - Now takes 50% width */}
-      <div className="w-full lg:w-1/2 flex justify-center lg:block relative">
-        <div className="relative w-full">
+      <div className="w-full lg:w-1/2 flex justify-center lg:block relative rounded-[34px]">
+        <div className="relative w-full rounded-[34px]">
           <Image
             src={BlackGuy}
             alt="blk guy"

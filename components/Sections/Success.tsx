@@ -40,7 +40,7 @@ const Success: React.FC = () => {
     const initHorizontalScroll = () => {
       const container = containerRef.current
       const scrollElement = scrollRef.current
-      
+
       if (!container || !scrollElement) return
 
       // Only apply on desktop
@@ -57,10 +57,10 @@ const Success: React.FC = () => {
       scrollTrigger = ScrollTrigger.create({
         trigger: container,
         scrub: 1,
-        pin:true,
+        pin: true,
         start: "center center",
         end: "bottom top+=100",
-        animation: gsap.fromTo(scrollElement, 
+        animation: gsap.fromTo(scrollElement,
           { x: 0 },
           { x: -scrollDistance, ease: "none" }
         ),
@@ -94,21 +94,21 @@ const Success: React.FC = () => {
   return (
     <>
       {/* Desktop version */}
-      <div className="hidden sm:block w-full py-16">
-        <div 
+      <div className="hidden lg:block w-full py-16">
+        <div
           ref={containerRef}
           className="w-full h-screen overflow-hidden"
         >
           {/* Header */}
           <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-16 pb-12">
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight tracking-tight text-[#060B13] max-w-full md:max-w-2xl lg:max-w-3xl text-center md:text-left">
+            <h1 className="xl:text-[48px] lg:text-[35px] md:text-[38px] text-[20px] font-bold leading-tight tracking-tight text-[#060B13] max-w-full md:max-w-md lg:max-w-3xl text-center md:text-left">
               Your Strategic Partner for International{" "}
               <span className="text-[#A10E2B]">Success</span>
             </h1>
           </div>
 
           {/* Horizontal scroll container */}
-          <div 
+          <div
             ref={scrollRef}
             className="flex gap-6 pl-4 sm:pl-6 md:pl-8 lg:pl-12 xl:pl-16 pr-4 sm:pr-6 md:pr-8 lg:pr-12 xl:pr-16"
           >
@@ -143,10 +143,10 @@ const Success: React.FC = () => {
       </div>
 
       {/* Mobile version */}
-      <div className='min-h-screen w-full flex items-center justify-center mb-15 sm:hidden'>
-        <div className='flex flex-col space-y-6'>
-          <div className="px-4 mb-6">
-            <h1 className="text-2xl font-bold leading-tight tracking-tight w-[284px] mx-auto text-[#060B13] text-center">
+      <div className='min-h-screen w-full flex items-center justify-center  lg:hidden'>
+        <div className='flex flex-col space-y-6 w-full px-4'> {/* Added w-full and px-4 here */}
+          <div className="mb-6">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight tracking-tight text-[#060B13] max-w-full md:max-w-2xl lg:max-w-3xl text-center md:text-left">
               Your Strategic Partner for International{" "}
               <span className="text-[#A10E2B]">Success</span>
             </h1>
@@ -154,9 +154,9 @@ const Success: React.FC = () => {
           {contents.map((content, index) => (
             <div
               key={`mobile-${index}`}
-              className="relative bg-[#F9F5F6] px-4 py-6 w-full h-82 flex-shrink-0 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden"
+              className="relative bg-[#F9F5F6] pt-6 px-6 w-full flex flex-col rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
             >
-              <div className="space-y-2">
+              <div className="space-y-2 mb-4"> {/* Added mb-4 for spacing */}
                 <h2 className="text-[#060B13] text-lg leading-tight tracking-tight text-start font-semibold">
                   {content.title}
                 </h2>
@@ -164,11 +164,11 @@ const Success: React.FC = () => {
                   {content.description}
                 </p>
               </div>
-              <div className="absolute">
+              <div className="flex-1 flex items-center justify-center"> {/* This will make the image container grow */}
                 <Image
                   src={content.image}
                   alt={`${content.title} icon`}
-                  className="w-full h-full mt-7"
+                  className="w-full h-auto object-contain max-h-[250px]" /* Adjust max-h as needed */
                   priority={index < 2}
                 />
               </div>
