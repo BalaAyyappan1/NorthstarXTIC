@@ -111,7 +111,7 @@ const Footer = () => {
 
       {/* mobile version */}
       <div className=' lg:hidden block'>
-        <div className="relative md:h-[338px] bg-[#F9F5F6] rounded-[20px] px-[16px] py-10 flex flex-col">
+        <div className="relative md:h-auto bg-[#F9F5F6] rounded-[20px] px-[16px] py-10 flex flex-col">
 
           <div className="flex justify-center mb-8">
             <Link href={'#home-section'}>

@@ -127,13 +127,13 @@ const Solutions = () => {
             height={1000}
             className="w-full h-[480px] rounded-[34px] object-cover"
           />
-          <div className="absolute bottom-0 right-5">
+          <div className="absolute md:bottom-0 md:right-5 bottom-0 -right-5 ">
             <Image
               src={Graph}
               alt="Graph"
               width={150}
               height={120}
-              className="h-20 sm:h-24 lg:h-28 object-contain hidden sm:block"
+              className="h-20 sm:h-24 lg:h-28 object-contain k"
             />
           </div>
         </div>

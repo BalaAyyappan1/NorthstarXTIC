@@ -143,7 +143,7 @@ const Success: React.FC = () => {
       </div>
 
       {/* Mobile version */}
-      <div className='min-h-screen w-full flex items-center justify-center lg:hidden'>
+      <div className='mt-15 mb-15  w-full flex items-center justify-center lg:hidden'>
         <div className='flex flex-col space-y-6 w-full px-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0'>
           <div className="mb-6 sm:col-span-2"> {/* Title spans both columns */}
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight tracking-tight text-[#060B13] max-w-full text-center sm:text-left">

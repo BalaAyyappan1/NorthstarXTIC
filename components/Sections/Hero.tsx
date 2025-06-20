@@ -18,7 +18,7 @@ const Hero = () => {
 
   return (
     <>
-    <div id='home-section' className="relative flex flex-row  justify-between items-center h-dvh w-full xl:px-[80px] lg:px-[70px] md:px-[16px] px-[16px] ">
+    <div id='home-section' className="relative flex flex-row  justify-between items-center h-screen w-full xl:px-[80px] lg:px-[70px] md:px-[16px] px-[16px] ">
       {/* Background Image - fills entire screen behind content */}
       <div className="absolute inset-0 -z-10 h-full w-full">
         <Image
@@ -32,8 +32,8 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto flex lg:flex-row flex-col justify-center items-center h-[665px]dvh xl:mt-15 lg:mt-15 md:mt-5  z-10">
-        <div className='xl:max-w-[457px] lg:max-w-[400px] md:max-w-[610px] sm:max-w-full w-full flex flex-col space-y-2 xl:space-y-4 lg:space-y-4'>
+      <div className="container mx-auto flex lg:flex-row flex-col justify-center items-center lg:h-[665px]dvh h-[50vh] xl:mt-15 lg:mt-15 md:mt-15 mt-0  z-10">
+        <div className='xl:max-w-[457px] lg:max-w-[400px] md:max-w-[590px] sm:max-w-full w-full flex flex-col space-y-2 xl:space-y-4 lg:space-y-4'>
           <h1 className="xl:text-[54px] lg:text-[44px] md:text-[36px] text-[20px] font-bold text-[#000000] xl:leading-[56px] lg:leading-[46px] md:leading-[39px] leading-[32px] mt-6 md:mt-10 relative">
             Accelerating Global Expansion Redefining{" "}
             {/* <br className="sm:hidden md:hidden " />  */}
@@ -70,7 +70,7 @@ const Hero = () => {
           <Image
             src={heroImage2}
             alt="hero"
-            className="w-full max-w-full sm:max-w-full md:max-w-[700px] lg:max-w-[450px] xl:max-w-[550px] rounded-xl"
+            className="w-full max-w-md rounded-xl"
             priority
           />
           </div>

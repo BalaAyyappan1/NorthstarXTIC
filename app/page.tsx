@@ -12,10 +12,10 @@ export default function Home() {
     <div className="overflow-x-hidden">
       <TopNav />
       <Hero />
-      <div className="md:mt-[120px] mt-[60px] md:mb-[120px] mb-[50px]">
+      <div className="xl:mt-[120px] lg:mt-[120px] md:mt-[20px] mt-[10px] md:mb-[120px] mb-[50px]">
       <Industries />
       </div>
-      <div className="xl:px-[180px] lg:px-[16px] md:px-[16px] px-[16px] xl:mb-[60px] lg:mb-[50px] md:mb-[100px] mb-[50px]">
+      <div className="xl:px-[180px] lg:px-[16px] md:px-[16px] px-[16px] xl:mb-[60px] lg:mb-[50px] md:mb-[10px] mb-[50px]">
       <Solutions />
       </div>
       <div className="xl:pl-[80px] lg:pl-[80px] md:pl-[16px] pl-[16px] md:pl-0 pr-[16px]">
