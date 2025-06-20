@@ -40,23 +40,25 @@ const Success: React.FC = () => {
     const initHorizontalScroll = () => {
       const container = containerRef.current
       const scrollElement = scrollRef.current
-
+    
       if (!container || !scrollElement) return
-
-      // Check if it's a touch device (tablets/mobile)
+    
+      // Check device type
       const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
-
-      // Only apply on desktop (non-touch devices with width >= 1024px)
-      if (window.innerWidth < 1024 || isTouchDevice) {
+      const isTablet = isTouchDevice && window.innerWidth >= 768 && window.innerWidth <= 1024
+      const isDesktop = window.innerWidth >= 1024
+    
+      // Apply horizontal scroll on desktop and tablets
+      if (!isDesktop && !isTablet) {
         gsap.set(scrollElement, { x: 0 })
         return
       }
-
+    
       // Simple approach - no pinning
       const scrollDistance = scrollElement.scrollWidth - container.offsetWidth
-
+    
       if (scrollDistance <= 0) return
-
+    
       scrollTrigger = ScrollTrigger.create({
         trigger: container,
         scrub: 1,
