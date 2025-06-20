@@ -59,78 +59,45 @@ const Success: React.FC = () => {
       if (ctx) ctx.revert()
       if (scrollTrigger) scrollTrigger.kill()
       
-      // Aggressive hardware acceleration setup
+      // Enhanced hardware acceleration
       gsap.set(scrollElement, {
         force3D: true,
         transformStyle: "preserve-3d",
         backfaceVisibility: "hidden",
         perspective: 1000,
-        willChange: "transform"
+        willChange: "transform",
+  
+        transform: "translateZ(0)",
+        filter: "blur(0px)" // Force layer creation
       })
       
       ctx = gsap.context(() => {
-        // Create animation with zero lag settings
-        const tl = gsap.timeline()
-        tl.to(scrollElement, {
-          x: -scrollDistance,
-          duration: 1,
-          ease: "none"
-        })
-        
-        // Ultra-smooth ScrollTrigger configuration
+        // Ultra-smooth ScrollTrigger with optimized settings
         scrollTrigger = ScrollTrigger.create({
           trigger: container,
           start: "top top",
           end: () => `+=${scrollDistance}`,
           pin: true,
-          scrub: true, // Boolean scrub for maximum smoothness
-          animation: tl,
+          scrub: 0.6,
           invalidateOnRefresh: true,
-          // Remove all callbacks to eliminate any potential lag
+          anticipatePin: 1,
+          refreshPriority: -1,
+          // Direct animation instead of timeline
+          animation: gsap.to(scrollElement, {
+            x: -scrollDistance,
+            ease: "none"
+          }),
+          // Performance optimizations
           fastScrollEnd: true,
-          preventOverlaps: true
+          preventOverlaps: true,
+          // Smooth refresh handling
+          onRefresh: () => {
+            gsap.set(scrollElement, { x: 1 })
+          }
         })
-        
       }, container)
     }
-    // Additional CSS optimizations (add to your stylesheet)
-    /*
-    .horizontal-scroll-container {
-      will-change: scroll-position;
-      transform: translateZ(0);
-      backface-visibility: hidden;
-      perspective: 1000px;
-    }
     
-    .horizontal-scroll-element {
-      will-change: transform;
-      transform: translateZ(0);
-      backface-visibility: hidden;
-      
-      /* Optimize for horizontal scrolling 
-      display: flex;
-      align-items: stretch;
-      
-      /* Prevent layout 
-      min-height: 100%;
-    }
-    
-    .horizontal-scroll-element > * {
-      flex-shrink: 0;
-      will-change: transform;
-      transform: translateZ(0);
-      backface-visibility: hidden;
-    }
-    
-    /* For better performance on 
-    @media (max-width: 1023px) {
-      .horizontal-scroll-element {
-        will-change: auto;
-        transform: none;
-      }
-    }
-    */
-
     const handleResize = () => {
       initHorizontalScroll()
     }
