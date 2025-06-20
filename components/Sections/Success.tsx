@@ -36,98 +36,119 @@ const Success: React.FC = () => {
 
   useEffect(() => {
     let scrollTrigger: ScrollTrigger | null = null
+    let ctx: gsap.Context | null = null
 
     const initHorizontalScroll = () => {
       const container = containerRef.current
       const scrollElement = scrollRef.current
-    
+      
       if (!container || !scrollElement) return
-    
+      
       // Only apply on devices with width >= 1024px
       if (window.innerWidth < 1024) {
-        gsap.set(scrollElement, { x: 0 })
+        gsap.set(scrollElement, { x: 0, clearProps: "all" })
         return
       }
-    
-      // Check if it's a touch device
-      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
-    
-      // For iPads and touch devices, use a much simpler approach
-      if (isTouchDevice) {
-        // Simple scroll-based animation without pinning
-        const handleScroll = () => {
-          const rect = container.getBoundingClientRect()
-          const containerHeight = container.offsetHeight
-          const windowHeight = window.innerHeight
-          
-          // Calculate progress based on how much of the container is visible
-          let progress = 0
-          if (rect.top < windowHeight && rect.bottom > 0) {
-            progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (containerHeight + windowHeight)))
-          }
-          
-          const scrollDistance = scrollElement.scrollWidth - container.offsetWidth
-          gsap.to(scrollElement, {
-            x: -scrollDistance * progress,
-            duration: 0.3,
-            ease: "power2.out"
-          })
-        }
-    
-        window.addEventListener('scroll', handleScroll, { passive: true })
-        handleScroll() // Initial call
-    
-        // Store cleanup function
-        scrollTrigger = {
-          kill: () => {
-            window.removeEventListener('scroll', handleScroll)
-          }
-        }
-      } else {
-        // Desktop version with pinning
-        const scrollDistance = scrollElement.scrollWidth - container.offsetWidth
-    
-        if (scrollDistance <= 0) return
-    
+      
+      // Calculate scroll distance
+      const scrollDistance = scrollElement.scrollWidth - container.offsetWidth
+      
+      if (scrollDistance <= 0) return
+      
+      // Clean up any previous instances
+      if (ctx) ctx.revert()
+      if (scrollTrigger) scrollTrigger.kill()
+      
+      // Aggressive hardware acceleration setup
+      gsap.set(scrollElement, {
+        force3D: true,
+        transformStyle: "preserve-3d",
+        backfaceVisibility: "hidden",
+        perspective: 1000,
+        willChange: "transform"
+      })
+      
+      ctx = gsap.context(() => {
+        // Create animation with zero lag settings
+        const tl = gsap.timeline()
+        tl.to(scrollElement, {
+          x: -scrollDistance,
+          duration: 1,
+          ease: "none"
+        })
+        
+        // Ultra-smooth ScrollTrigger configuration
         scrollTrigger = ScrollTrigger.create({
           trigger: container,
-          scrub: 1,
+          start: "top top",
+          end: () => `+=${scrollDistance}`,
           pin: true,
-          start: "center center",
-          end: "bottom top+=100",
-          animation: gsap.fromTo(scrollElement,
-            { x: 0 },
-            { x: -scrollDistance, ease: "none" }
-          ),
-          invalidateOnRefresh: true
+          scrub: true, // Boolean scrub for maximum smoothness
+          animation: tl,
+          invalidateOnRefresh: true,
+          // Remove all callbacks to eliminate any potential lag
+          fastScrollEnd: true,
+          preventOverlaps: true
         })
+        
+      }, container)
+    }
+    // Additional CSS optimizations (add to your stylesheet)
+    /*
+    .horizontal-scroll-container {
+      will-change: scroll-position;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+    
+    .horizontal-scroll-element {
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      
+      /* Optimize for horizontal scrolling 
+      display: flex;
+      align-items: stretch;
+      
+      /* Prevent layout 
+      min-height: 100%;
+    }
+    
+    .horizontal-scroll-element > * {
+      flex-shrink: 0;
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+    
+    /* For better performance on 
+    @media (max-width: 1023px) {
+      .horizontal-scroll-element {
+        will-change: auto;
+        transform: none;
       }
     }
-
-    
-    const timer = setTimeout(() => {
-      initHorizontalScroll()
-    }, 100)
+    */
 
     const handleResize = () => {
-      if (scrollTrigger) {
-        scrollTrigger.kill()
-        scrollTrigger = null
-      }
-      setTimeout(initHorizontalScroll, 100)
+      initHorizontalScroll()
     }
+
+    // Initialize with a slight delay to ensure DOM is ready
+    const initDelay = setTimeout(initHorizontalScroll, 300)
 
     window.addEventListener('resize', handleResize)
 
     return () => {
-      clearTimeout(timer)
+      clearTimeout(initDelay)
       window.removeEventListener('resize', handleResize)
-      if (scrollTrigger) {
-        scrollTrigger.kill()
-      }
+      if (ctx) ctx.revert()
+      if (scrollTrigger) scrollTrigger.kill()
     }
   }, [])
 
+  // ... rest of the component remains the same ...
   return (
     <>
       {/* Desktop version */}

@@ -25,3 +25,11 @@ body {
 }
 
 
+
+.scroll-element {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
