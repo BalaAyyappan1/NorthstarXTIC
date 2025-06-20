@@ -43,8 +43,11 @@ const Success: React.FC = () => {
 
       if (!container || !scrollElement) return
 
-      // Only apply on desktop and tablet (lg breakpoint is 1024px)
-      if (window.innerWidth < 1024) {
+      // Check if it's a touch device (tablets/mobile)
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+
+      // Only apply on desktop (non-touch devices with width >= 1024px)
+      if (window.innerWidth < 1024 || isTouchDevice) {
         gsap.set(scrollElement, { x: 0 })
         return
       }
