@@ -43,8 +43,8 @@ const Success: React.FC = () => {
 
       if (!container || !scrollElement) return
 
-      // Only apply on desktop
-      if (window.innerWidth < 640) {
+      // Only apply on desktop and tablet (lg breakpoint is 1024px)
+      if (window.innerWidth < 1024) {
         gsap.set(scrollElement, { x: 0 })
         return
       }

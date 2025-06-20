@@ -152,7 +152,7 @@ const Footer = () => {
           </div>
 
 
-          <div className='flex flex-row space-x-2 justify-center pt-5 md:pt-5 text-[#909090] text-[13px]'>
+          <div className='flex flex-row space-x-2 justify-center pt-5 md:pt-8 text-[#909090] text-[13px]'>
             © designed & developed by&nbsp;<Link href={'https://www.theinternetcompany.one/'} target="_blank" rel="noopener noreferrer" className='hover:underline'> TIC GLOBAL</Link>.
           </div>
         </div>
