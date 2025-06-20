@@ -43,36 +43,68 @@ const Success: React.FC = () => {
     
       if (!container || !scrollElement) return
     
-      // Check device type
-      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
-      const isTablet = isTouchDevice && window.innerWidth >= 768 && window.innerWidth <= 1024
-      const isDesktop = window.innerWidth >= 1024
-    
-      // Apply horizontal scroll on desktop and tablets
-      if (!isDesktop && !isTablet) {
+      // Only apply on devices with width >= 1024px
+      if (window.innerWidth < 1024) {
         gsap.set(scrollElement, { x: 0 })
         return
       }
     
-      // Simple approach - no pinning
-      const scrollDistance = scrollElement.scrollWidth - container.offsetWidth
+      // Check if it's a touch device
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
     
-      if (scrollDistance <= 0) return
+      // For iPads and touch devices, use a much simpler approach
+      if (isTouchDevice) {
+        // Simple scroll-based animation without pinning
+        const handleScroll = () => {
+          const rect = container.getBoundingClientRect()
+          const containerHeight = container.offsetHeight
+          const windowHeight = window.innerHeight
+          
+          // Calculate progress based on how much of the container is visible
+          let progress = 0
+          if (rect.top < windowHeight && rect.bottom > 0) {
+            progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (containerHeight + windowHeight)))
+          }
+          
+          const scrollDistance = scrollElement.scrollWidth - container.offsetWidth
+          gsap.to(scrollElement, {
+            x: -scrollDistance * progress,
+            duration: 0.3,
+            ease: "power2.out"
+          })
+        }
     
-      scrollTrigger = ScrollTrigger.create({
-        trigger: container,
-        scrub: 1,
-        pin: true,
-        start: "center center",
-        end: "bottom top+=100",
-        animation: gsap.fromTo(scrollElement,
-          { x: 0 },
-          { x: -scrollDistance, ease: "none" }
-        ),
-        invalidateOnRefresh: true
-      })
+        window.addEventListener('scroll', handleScroll, { passive: true })
+        handleScroll() // Initial call
+    
+        // Store cleanup function
+        scrollTrigger = {
+          kill: () => {
+            window.removeEventListener('scroll', handleScroll)
+          }
+        }
+      } else {
+        // Desktop version with pinning
+        const scrollDistance = scrollElement.scrollWidth - container.offsetWidth
+    
+        if (scrollDistance <= 0) return
+    
+        scrollTrigger = ScrollTrigger.create({
+          trigger: container,
+          scrub: 1,
+          pin: true,
+          start: "center center",
+          end: "bottom top+=100",
+          animation: gsap.fromTo(scrollElement,
+            { x: 0 },
+            { x: -scrollDistance, ease: "none" }
+          ),
+          invalidateOnRefresh: true
+        })
+      }
     }
 
+    
     const timer = setTimeout(() => {
       initHorizontalScroll()
     }, 100)
