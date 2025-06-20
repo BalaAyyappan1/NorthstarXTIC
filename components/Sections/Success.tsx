@@ -43,31 +43,34 @@ const Success: React.FC = () => {
 
       if (!container || !scrollElement) return
 
-      // Check if it's a touch device (tablets/mobile)
-      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+      // More specific tablet detection - exclude iPads but allow desktop
+      const isTablet = /iPad|Android|Tablet/.test(navigator.userAgent) || 
+                      (navigator.maxTouchPoints > 0 && window.innerWidth >= 768 && window.innerWidth <= 1366)
 
-      // Only apply on desktop (non-touch devices with width >= 1024px)
-      if (window.innerWidth < 1024 || isTouchDevice) {
+      // Only apply on desktop (non-tablet devices with width >= 1024px)
+      if (window.innerWidth < 1024 || isTablet) {
         gsap.set(scrollElement, { x: 0 })
         return
       }
 
-      // Simple approach - no pinning
+      // Calculate scroll distance
       const scrollDistance = scrollElement.scrollWidth - container.offsetWidth
 
       if (scrollDistance <= 0) return
 
+      // Create horizontal scroll animation
       scrollTrigger = ScrollTrigger.create({
         trigger: container,
+        start: "top center",
+        end: `+=${scrollDistance}`,
         scrub: 1,
         pin: true,
-        start: "center center",
-        end: "bottom top+=100",
-        animation: gsap.fromTo(scrollElement,
-          { x: 0 },
-          { x: -scrollDistance, ease: "none" }
-        ),
-        invalidateOnRefresh: true
+        animation: gsap.to(scrollElement, {
+          x: -scrollDistance,
+          ease: "none"
+        }),
+        invalidateOnRefresh: true,
+        refreshPriority: -1
       })
     }
 
