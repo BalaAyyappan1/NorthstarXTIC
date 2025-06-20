@@ -21,7 +21,7 @@ export default function Home() {
       <div className="xl:pl-[80px] lg:pl-[80px] md:pl-[16px] pl-[16px] md:pl-0 pr-[16px]">
       <Success />
       </div>
-      <div className="xl:px-[80px] lg:px-[70px] px-[16px] xl:mt-[1px] lg:mt-[1px] md:mt-[80px]"> 
+      <div className="xl:px-[80px] lg:px-[70px] px-[16px] xl:mt-[1px] lg:mt-[1px] md:mt-[80px] mt-[50px]"> 
       <Contact />
       </div>
       <div className="xl:px-[80px] lg:px-[70px] px-[16px] xl:mt-[120px] mt-[50px] mb-10">

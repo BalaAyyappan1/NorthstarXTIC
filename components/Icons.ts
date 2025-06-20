@@ -7,6 +7,8 @@ export {default as Bg} from "@/public/Background/Background.png";
 
 //Hero Section 
 export {default as heroImage} from "@/public/Hero/heroImage.png";
+export {default as heroImage2} from "@/public/Hero/hero2.png";
+
 
 
 //Industries 

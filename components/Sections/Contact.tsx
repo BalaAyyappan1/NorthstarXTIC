@@ -130,36 +130,36 @@ const Contact = () => {
         alt="Arrow"
         className="absolute md:-top-[5%] -top-[1%] md:left-[5%] left-[1%] w-[125px]"
       />
-      <div className="flex md:flex-row flex-col justify-center items-start gap-12 h-full mt-2">
+      <div className="flex md:flex-row flex-col justify-center items-start xl:gap-12 lg:gap-12 md:gap-0 gap-10 h-full mt-2">
         {/* Left Side - Image and Text */}
         <div className="flex-1 flex flex-col justify-center items-start space-y-6">
           {/* Placeholder Text */}
           <div className="space-y-2 text-white w-[454px] md:mt-0 mt-5">
-            <h2 className="md:text-[16px] text-[12px] md:leading-[18px] leading-[14px]">
+            <h2 className="xl:text-[16px] lg:text-[16px] md:text-[14px] text-[12px] md:leading-[18px] leading-[14px]">
               Contact Us
             </h2>
-            <p className="md:text-[36px] text-[20px] md:leading-[36px] leading-[26px] md:tracking-[-2px] tracking-[-1px] font-semibold">
+            <p className="xl:text-[36px] lg:text-[36] md:text-[32px] text-[20px] md:leading-[36px] leading-[26px] md:tracking-[-2px] tracking-[-1px] font-semibold">
               Let's grow together
             </p>
-            <div className="space-y-2 md:text-[36px] text-[20px] md:tracking-[-2px] tracking-[-1px] text-[#A10E2B] font-semibold -mt-3.5 ">
+            <div className="space-y-2 xl:text-[36px] lg:text-[36] md:text-[32px] text-[20px] md:tracking-[-2px] tracking-[-1px] text-[#A10E2B] font-semibold -mt-3.5 ">
               Join Our Northstar Team
             </div>
-            <div className="flex flex-col md:space-y-4 space-y-0.5 text-white md:text-[16px] text-[12px] md:leading-[18px] font-normal">
+            <div className="flex flex-col md:space-y-4 space-y-0.5 text-white xl:text-[16px] lg:text-[16px] md:text-[14px] text-[12px] md:leading-[18px] font-normal">
               <div className="flex flex-col md:space-y-2 space-y-1">
-                <p className='md:w-auto w-[350px]'>
+                <p className=' md:w-[350px] w-[250px]'>
                   We're excited to hear from you and let’s start something
                   special together.
                 </p>
                 <p>Email:info@northstargrowthadvisors.com</p>
               </div>
-              <div className="md:w-auto w-[350px]">
+              <div className=" w-[350px]">
                 <p>
                   Address: Unit No. GB-06, Ground Floor, Pragya Accelerator,
                   Gift City, Gandhinagar - 382355, INDIA
                 </p>
               </div>
 
-              <p className="md:w-[350px] w-[250px]">
+              <p className=" w-[350px]">
                 Unit No. 13, 1st Floor, Unicorn, Dattaji Salve Road, Off Link
                 Road, Andheri–W,
                 <br />

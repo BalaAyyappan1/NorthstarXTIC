@@ -143,10 +143,10 @@ const Success: React.FC = () => {
       </div>
 
       {/* Mobile version */}
-      <div className='min-h-screen w-full flex items-center justify-center  lg:hidden'>
-        <div className='flex flex-col space-y-6 w-full px-4'> {/* Added w-full and px-4 here */}
-          <div className="mb-6">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight tracking-tight text-[#060B13] max-w-full md:max-w-2xl lg:max-w-3xl text-center md:text-left">
+      <div className='min-h-screen w-full flex items-center justify-center lg:hidden'>
+        <div className='flex flex-col space-y-6 w-full px-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0'>
+          <div className="mb-6 sm:col-span-2"> {/* Title spans both columns */}
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight tracking-tight text-[#060B13] max-w-full text-center sm:text-left">
               Your Strategic Partner for International{" "}
               <span className="text-[#A10E2B]">Success</span>
             </h1>
@@ -156,7 +156,7 @@ const Success: React.FC = () => {
               key={`mobile-${index}`}
               className="relative bg-[#F9F5F6] pt-6 px-6 w-full flex flex-col rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
             >
-              <div className="space-y-2 mb-4"> {/* Added mb-4 for spacing */}
+              <div className="space-y-2 mb-4">
                 <h2 className="text-[#060B13] text-lg leading-tight tracking-tight text-start font-semibold">
                   {content.title}
                 </h2>
@@ -164,11 +164,11 @@ const Success: React.FC = () => {
                   {content.description}
                 </p>
               </div>
-              <div className="flex-1 flex items-center justify-center"> {/* This will make the image container grow */}
+              <div className="flex-1 flex items-center justify-center">
                 <Image
                   src={content.image}
                   alt={`${content.title} icon`}
-                  className="w-full h-auto object-contain max-h-[250px]" /* Adjust max-h as needed */
+                  className="w-full h-auto object-contain max-h-[250px]"
                   priority={index < 2}
                 />
               </div>
